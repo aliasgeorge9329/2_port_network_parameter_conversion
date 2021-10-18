@@ -41,14 +41,14 @@ def h_to_other():
     c = complex(t_21)
     d = complex(t_22)
 
-    if a == d and (a * d - b * c).real == 1:
+    if a == d and (a*d - b*c).real - 1 < 0.01:
         print(f"\n{bcolors.WARNING}System is Reciprocal and Symmetric")
         z_0 = cmath.sqrt(b / c)
         e_gamma = a + cmath.sqrt(b * c)
         print(
             f"characteristic impedance z_0 = +-{z_0} and transfer constant e^gamma = {e_gamma} ")
 
-    elif (a * d - b * c).real == 1:
+    elif (a*d - b*c).real - 1 < 0.01:
         print(f"{bcolors.WARNING}System is Reciprocal")
         z_img_1 = cmath.sqrt((a * b) / (c * d))
         z_img_2 = cmath.sqrt((d * b) / (c * a))
